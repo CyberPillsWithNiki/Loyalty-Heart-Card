@@ -16,7 +16,7 @@ import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, onValue, set, get } from 'firebase/database'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBhYvKXywwSNYJe-Uly3gfwRrS454ZUIeg",
+  apiKey: "AIzaSyBD5PNSHspVBEMcDDkaTwncdKMJf-0CGyg",
   authDomain: "loyalty-card-aa0ca.firebaseapp.com",
   databaseURL: "https://loyalty-card-aa0ca-default-rtdb.firebaseio.com",
   projectId: "loyalty-card-aa0ca",
