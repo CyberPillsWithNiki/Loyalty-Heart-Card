@@ -1,0 +1,287 @@
+:root {
+  --rose-50: #fff1f2;
+  --rose-100: #ffe4e6;
+  --rose-200: #fecdd3;
+  --rose-300: #fda4af;
+  --rose-400: #fb7185;
+  --rose-500: #f43f5e;
+  --rose-600: #e11d48;
+  --rose-700: #be123c;
+  --rose-800: #9f1239;
+  --cream: #fef7f5;
+  --ink: #1c1917;
+  --ink-muted: #57534e;
+  --gold: #d4a853;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(165deg, var(--cream) 0%, var(--rose-50) 50%, var(--rose-100) 100%);
+  min-height: 100dvh;
+  min-height: 100vh;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+.card-container {
+  min-height: 100dvh;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 1.5rem);
+}
+
+.loyalty-card {
+  width: 100%;
+  max-width: 340px;
+  background: linear-gradient(145deg, #ffffff 0%, #fff5f7 100%);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(225, 29, 72, 0.08), 0 10px 30px -10px rgba(225, 29, 72, 0.15), 0 0 0 1px rgba(225, 29, 72, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.loyalty-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--rose-500), var(--gold));
+  border-radius: 24px 24px 0 0;
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--rose-700);
+  margin-bottom: 0.25rem;
+}
+
+.card-subtitle {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hearts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  min-height: 80px;
+  align-items: center;
+}
+
+.heart {
+  font-size: 2rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.heart.filled {
+  animation: heartPop 0.4s ease;
+}
+
+@keyframes heartPop {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.heart.empty {
+  opacity: 0.25;
+}
+
+.points-text {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--ink-muted);
+  margin-top: 1rem;
+}
+
+.add-heart-btn {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, var(--rose-600) 0%, var(--rose-700) 100%);
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4);
+}
+
+.add-heart-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+}
+
+.add-heart-btn:active {
+  transform: translateY(0);
+}
+
+.add-heart-btn.sent {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
+}
+
+.heart-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.remove-heart-btn {
+  padding: 0.75rem 1.25rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  background: transparent;
+  border: 1px solid var(--rose-200);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.remove-heart-btn:hover:not(:disabled) {
+  background: var(--rose-50);
+  color: var(--rose-600);
+}
+
+.remove-heart-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.add-heart-btn .btn-icon {
+  font-size: 1.25rem;
+}
+
+.setup-screen {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.setup-screen h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--rose-700);
+  margin-bottom: 0.5rem;
+}
+
+.setup-screen p {
+  color: var(--ink-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.875rem 1.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, var(--rose-600) 0%, var(--rose-700) 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--rose-600);
+  border: 2px solid var(--rose-200);
+  margin-top: 1rem;
+}
+
+.btn-secondary:hover {
+  background: var(--rose-50);
+}
+
+.join-form {
+  margin-top: 1.5rem;
+}
+
+.join-form input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--rose-200);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-family: 'Outfit', monospace;
+}
+
+.join-form input:focus {
+  outline: none;
+  border-color: var(--rose-500);
+}
+
+.share-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.6);
+  border-radius: 12px;
+}
+
+.share-section p {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.share-link {
+  font-size: 0.75rem;
+  color: var(--rose-600);
+  word-break: break-all;
+  padding: 0.5rem;
+}
+
+.loading {
+  font-size: 1rem;
+  color: var(--ink-muted);
+}
